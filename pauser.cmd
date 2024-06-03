@@ -1,4 +1,4 @@
 @echo off
-python "B:/Stack.py"
+python "C:/main.py"
 echo .
 pause
