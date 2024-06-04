@@ -44,7 +44,7 @@ class Stack: # Создаем класс "стопка"
 # Пример использования
 if __name__ == "__main__":
     stack = Stack()
-    print(f"{stack.is_empty() = }") # Вывод: False 
+    print(f"{stack.is_empty() = }") # Вывод: True 
     for i in ['A','B','C','D','E']: # заполняю стек
         stack.push(i)
     print(f"{stack.pop() = }")      # Вывод: E
