@@ -52,8 +52,10 @@ if __name__ == "__main__":
     unsorted_list = list(range(10**4))
     while True:
         random.shuffle(unsorted_list)
-        choose = input("\n[Ввод] Выберите алгоритм сортировки (1-bubble/2-selection/3-quick): ")
+        choose = input("\n[Ввод] Выберите алгоритм сортировки (0-exit/1-bubble/2-selection/3-quick): ")
         start_time = time.time()
+        if choose == '0':
+            break
         if choose == '1':
             #print(f"{unsorted_list = }")
             sorted_list = bubble_sort(unsorted_list)
