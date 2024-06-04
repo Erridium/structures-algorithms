@@ -1,5 +1,5 @@
 '''
-    =[ Стек (стопка) ]=
+    =[ Бинарное Дерево ]=
     
     Работу выполнил - Мищенко И.Р.
     Группа - 2Б
@@ -22,31 +22,34 @@ class BinaryTree:
         else:
             current_node = self.root
             while True:
-                if data < current_node.data: # если новое число меньше настоящего, заполняем левуб ветку
-                    if current_node.left is None:
+                if data < current_node.data: # Если значение нового узла меньше, чем значение текущего узла, то спускаемся влево
+                    if current_node.left is None: # Когда мы достигаем узла, у которого соответствующее левое или правое поле равно None, мы вставляем в него новый узел
                         current_node.left = new_node
                         return
                     else:
                         current_node = current_node.left
-                else: # иначе заполняем правую ветку
+                else: # Если значение нового узла больше или равно значению текущего узла, то спускаемся вправо
                     if current_node.right is None:
                         current_node.right = new_node
                         return
                     else:
                         current_node = current_node.right
 
+    # мы печатаем отсортированный список, так как посещаем узлы в порядке возрастания
     def in_order_traversal(self, node): # вывод в порядке возрастания
         if node:
             self.in_order_traversal(node.left) # сначала издалека левая ветка
-            print(node.data, end=' ')
-            self.in_order_traversal(node.right) # потом от корня правая ветка
+            print(node.data, end=' ')          # печатаем значение текущего узла
+            self.in_order_traversal(node.right)# потом от корня правая ветка
 
+    # печатаем значение узла ДО обхода поддеревьев
     def pre_order_traversal(self, node):
         if node:
             print(node.data, end=' ')
             self.pre_order_traversal(node.left) # сначала от корня левая ветка
             self.pre_order_traversal(node.right) # потом от корня правая ветка
 
+    # печатаем значение узла ПОСЛЕ обхода поддеревьев
     def post_order_traversal(self, node):
         if node:
             self.post_order_traversal(node.left) # сначала издалека левая ветка
